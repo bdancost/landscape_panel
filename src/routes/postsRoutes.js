@@ -4,6 +4,7 @@ import {
   listarPosts,
   postarNovoPost,
   uploadImagem,
+  atualizarNovoPost,
 } from "../controllers/postsController.js";
 
 const upload = multer({ dest: "./uploads" });
@@ -17,6 +18,8 @@ const routes = (app) => {
   // Rota para criar um novo post
   app.post("/posts", postarNovoPost);
   app.post("/upload", upload.single("imagem"), uploadImagem);
+
+  app.put("/upload/:id", atualizarNovoPost);
 };
 
 export default routes;
